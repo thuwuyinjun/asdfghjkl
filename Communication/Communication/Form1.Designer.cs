@@ -513,7 +513,6 @@
         private System.Windows.Forms.PictureBox pb_video;
         private System.Windows.Forms.PictureBox pb_pic;
         private System.Windows.Forms.PictureBox pb_snapshot;
-        private System.Windows.Forms.RichTextBox tb_input;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dfdfToolStripMenuItem;
         private System.Windows.Forms.PictureBox pb_add;
@@ -537,6 +536,7 @@
         public System.Windows.Forms.RichTextBox tb_output;
         public System.Windows.Forms.Panel panel_toolstrip;
         private System.Windows.Forms.Timer shake_timer;
+        public System.Windows.Forms.RichTextBox tb_input;
     }
 }
 

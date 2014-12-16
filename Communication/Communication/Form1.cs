@@ -56,7 +56,12 @@ namespace Communication
         ListViewItem lvi = new ListViewItem();
         static public List<string> fr = new List<string>();
         int sequence = 0;
+        
         public List<IPAddress> iplist = new List<System.Net.IPAddress>();
+        public List<Socket> apply_socket = new List<Socket>();
+        public List<RichTextBox> boxlist = new List<RichTextBox>();
+        public RichTextBox curr_box = new RichTextBox();
+
         public bool changed = false;
         int group_curr_x = 55;
         int group_curr_y = 60;
@@ -87,6 +92,9 @@ namespace Communication
         List<int> gif_x = new List<int>();
         List<int> gif_id = new List<int>();
         int send_type;
+
+        int current_group_x = 60;
+        int current_group_y = 50;
 
         public Client_Form()
         {
@@ -132,14 +140,17 @@ namespace Communication
             iplist.Add(IPAddress.Parse(GetLocalIP()));
             frd_list.Add("2012011493");
             iplist.Add(IPAddress.Parse("166.111.111.111"));
-            changed = true;
+
             timer3_Tick(this, null);
             group_name_change = false;
+            control_local_test.islocal = true;
+            boxlist.Add(this.tb_input);
+            curr_box = tb_input;
         }
         void control_friend_lbclick(object sender, EventArgs e)
         {
             current_select = (control_friend)(sender as Label).Parent;
-            
+            this.tb_input = curr_box;
             //friend[0].reset();
             panel_toolstrip.Visible = true;
             panel_toolstrip.BringToFront();
@@ -150,7 +161,8 @@ namespace Communication
         void control_friend_pbclick(object sender, EventArgs e)
         {
             current_select = (control_friend)(sender as PictureBox).Parent;
-           
+            this.tb_input = curr_box;
+
             friend[0].reset();
             panel_toolstrip.Visible = true;
             panel_toolstrip.BringToFront();
@@ -161,7 +173,8 @@ namespace Communication
         void control_friend_backclick(object sender, EventArgs e)
         {
             current_select =(sender as control_friend);
-            
+            this.tb_input = curr_box;
+
             friend[0].reset();
             panel_toolstrip.Visible = true;
             panel_toolstrip.BringToFront();
@@ -174,30 +187,7 @@ namespace Communication
         {
             if (changed == true && group == false)
             {
-                string record = path;
-                control_friend fd = new control_friend();
-                Point p = new Point();
-                p.X = current_x;
-                p.Y = current_y + 50;
-                current_y += 50;
-                fd.Location = p;
-                this.Controls.Add(fd);
-                fd.BringToFront();
-                fd.form = this;
-                fd.mypanel.Location = this.panel_toolstrip.Location;
-                fd.mypanel.Visible = true;
-                this.Controls.Add(fd.mypanel);
-                fd.panel_index = this.Controls.Count-1;
-                fd.index = friend.Count;
-                friend.Add(fd);
-                changed = false;
-                timer3.Enabled = false;
-                index_frd.Add(this.Controls.Count - 1);
-                path += "./" + frd_list[frd_list.Count - 1] + ".txt";
-                if (!File.Exists(path))
-                {
-                    File.Create(path);
-                }
+                
             }
             else
             {
@@ -231,6 +221,7 @@ namespace Communication
             want_befrd frd_wanting = new want_befrd();
             frd_wanting.form = this;
             timer5.Enabled = true;
+            frd_wanting.apply_socket = apply_socket;
             frd_wanting.Show();
             frd_wanting.show_apply(apply_frd.Count, apply_frd, apply_id);
         }
@@ -324,7 +315,7 @@ namespace Communication
                     int n = this.tb_output.Controls.Count - 1;
                     this.tb_output.Controls.RemoveAt(n);
                 }
-                send(send_type);
+                send(send_type,sockClient);
                 tb_output.Clear();
               //  tb_output.Controls.Remove(pic);
             }
@@ -653,7 +644,7 @@ namespace Communication
                 //lbOnline.Items.Add(sokConnection.RemoteEndPoint.ToString());
                 // 将与客户端连接的 套接字 对象添加到集合中；  
                 //want_frd.Add(sokConnection.RemoteEndPoint.ToString());
-
+                apply_socket.Add(sokConnection);
                 dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
                 /*Thread req = new Thread(request);
                 req.IsBackground = true;
@@ -671,7 +662,7 @@ namespace Communication
 
         }
 
-        void RecMsg(object sokConnectionparn)
+        public void RecMsg(object sokConnectionparn)
         {
             Socket sokClient = sokConnectionparn as Socket;
             while (true)
@@ -806,7 +797,7 @@ namespace Communication
         #endregion
 
         
-        void ShowMsg(string str,Color color,HorizontalAlignment direction)
+        public void ShowMsg(string str,Color color,HorizontalAlignment direction)
         {
             this.tb_input.SelectionColor = color;
             this.tb_input.SelectionAlignment = direction;
@@ -857,7 +848,7 @@ namespace Communication
             threadClient.Start();*/
 
         }
-        private void send(int type)           //好友账号
+        private void send(int type,Socket socket)           //好友账号
         {
             Font oldFont = this.tb_input.SelectionFont;
             string strMsg = tb_output.Text;
@@ -872,14 +863,14 @@ namespace Communication
                 arrSendMsg = new byte[img.Length + 1];
                 arrSendMsg[0] = 2; // 用来表示发送的是消息数据  
                 Buffer.BlockCopy(img, 0, arrSendMsg, 1, img.Length);
-                sockClient.Send(arrSendMsg);
+                socket.Send(arrSendMsg);
             }
             else
             {
                 arrSendMsg = new byte[arrMsg.Length + 1];
                 arrSendMsg[0] = 0; // 用来表示发送的是消息数据  
                 Buffer.BlockCopy(arrMsg, 0, arrSendMsg, 1, arrMsg.Length);
-                sockClient.Send(arrSendMsg); // 发送消息；  
+                socket.Send(arrSendMsg); // 发送消息；  
             }
         }
 
@@ -1068,6 +1059,56 @@ namespace Communication
         private void Client_Form_LocationChanged(object sender, EventArgs e)
         {
             this.bg_form.Location = this.Location;
+        }
+
+        public void addnewfrd(string str, int id, Socket socket)
+        {
+            if (id == 3)
+            {
+                string record = path;
+                control_friend fd = new control_friend();
+                Point p = new Point();
+                p.X = current_x;
+                p.Y = current_y + 50;
+                current_y += 50;
+                fd.Location = p;
+                this.Controls.Add(fd);
+                fd.BringToFront();
+                fd.form = this;
+                //fd.mypanel.Location = this.panel_toolstrip.Location;
+                //fd.mypanel.Visible = true;
+                //this.Controls.Add(fd.mypanel);
+                fd.panel_index = this.Controls.Count - 1;
+                fd.index = friend.Count;
+                fd.chatting_socket = socket;
+                friend.Add(fd);
+                timer3.Enabled = false;
+                index_frd.Add(this.Controls.Count - 1);
+                path += "./" + frd_list[frd_list.Count - 1] + ".txt";
+                if (!File.Exists(path))
+                {
+                    File.Create(path);
+                }
+                sockClient = socket;
+            }
+            else
+            {
+                if (id == 4)
+                {
+                    group_talk gt = new group_talk();
+                    grouptalk.Add(gt);
+                    List<control_friend> frd_list = new List<control_friend>();
+                    group_frd.Add(frd_list);
+                    control_friend fd = new control_friend();
+                    Point p = new Point();
+                    p.X = current_group_x;
+                    p.Y = current_group_y;
+                    gt.Location = p;
+                    this.Controls.Add(gt);
+                    gt.BringToFront();
+                    
+                }
+            }
         }
 
     }

@@ -64,6 +64,7 @@ namespace Communication
             {
                 MessageBox.Show("登录错误");
             }
+            sockClient.Close();
         }
         private void tb_StudentNum_LostFocus(object sender, EventArgs e)
         {

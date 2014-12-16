@@ -54,12 +54,6 @@
     <Compile Include="bg_form.Designer.cs">
       <DependentUpon>bg_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="chatting_panel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="chatting_panel.Designer.cs">
-      <DependentUpon>chatting_panel.cs</DependentUpon>
-    </Compile>
     <Compile Include="chat_bubble.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,9 +129,6 @@
     </Compile>
     <EmbeddedResource Include="bg_form.resx">
       <DependentUpon>bg_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="chatting_panel.resx">
-      <DependentUpon>chatting_panel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="chat_bubble.resx">
       <DependentUpon>chat_bubble.cs</DependentUpon>

@@ -22,6 +22,8 @@ namespace Communication
         int num;
         public control_friend new_frd = new control_friend();
         public Client_Form form;
+
+        public RichTextBox box = new RichTextBox();
         public find()
         {
             InitializeComponent();
@@ -66,7 +68,7 @@ namespace Communication
                 if (temp.Substring(0, 1) != "n")
                 {
                     IPAddress IP = IPAddress.Parse(temp.Substring(0, lenth - 4));
-                    endPoint = new IPEndPoint(IP, 56434);
+                    endPoint = new IPEndPoint(IP, 56433);
                     fr_socket.Connect(endPoint);
                     send_message = form.StudentNum;       //改为本用户名
                     sd = System.Text.Encoding.UTF8.GetBytes(send_message);
@@ -82,6 +84,8 @@ namespace Communication
                         form.changed = true;
                         form.iplist.Add(IP);
                         form.frd_list.Add(num.ToString());
+                        form.addnewfrd(num.ToString(), 3, socket);
+                        form.tb_input = box;
                         MessageBox.Show("添加好友成功！");
                         this.Close();
                     }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Communication
 {
@@ -21,6 +23,16 @@ namespace Communication
         public Client_Form form;
         int total;
         List<string> wait_ack = new List<string>();
+        public List<Socket> apply_socket = new List<Socket>();
+        public List<string> apply_frd = new List<string>();
+        public List<int> apply_id = new List<int>();
+
+        public List<Socket> accept_socket = new List<Socket>();
+        public List<string> accept_frd = new List<string>();
+        public List<int> accept_id = new List<int>();
+
+        public RichTextBox box = new RichTextBox();
+
         public want_befrd()
         {
             InitializeComponent();
@@ -29,9 +41,11 @@ namespace Communication
 
         private void button1_Click(object sender, EventArgs e)
         {
+            form.boxlist.Add(box);
             form.accept_frd = true;
             form.frd_list.Add(wait_ack[i]);
-            
+            form.addnewfrd(wait_ack[i], 3, apply_socket[i]);
+            form.tb_input = box;
             this.Controls[i].Enabled = false;
         }
 
@@ -43,7 +57,6 @@ namespace Communication
 
         public void show_apply(int num, List<string> apply, List<int> apply_id)
         {
-
             wait_ack = apply;
             Point p = new Point();
             for (i = 0; i < apply.Count; i++)
@@ -59,7 +72,12 @@ namespace Communication
 
                 Label label = new Label();
                 if (apply_id[i] == 3)
+                {
                     label.Text = apply[i] + "想加您为好友";
+                    accept_socket.Add(apply_socket[i]);
+                    accept_frd.Add(apply_frd[i]);
+                    accept_id.Add(apply_id[i]);
+                }
                 else
                 {
                     if (apply_id[i] == 4)
@@ -67,6 +85,9 @@ namespace Communication
                         string frd = apply[i].Substring(0, 10);
                         string name = apply[i].Substring(10, apply[i].Length - 10);
                         label.Text = frd + "想加您进入群" + name;
+                        accept_socket.Add(apply_socket[i]);
+                        accept_frd.Add(apply_frd[i]);
+                        accept_id.Add(apply_id[i]);
                     }
                 }
                 label.Font = new Font("宋体", 12);
@@ -99,6 +120,15 @@ namespace Communication
                 this.Controls[i].Controls.Add(button2);
                 button2.Click += button2_Click;
                 button2.BringToFront();
+            }
+            for (int i = 0; i < accept_frd.Count; i++)
+            {
+                string str = "yes";
+                byte [] sd = System.Text.Encoding.UTF8.GetBytes(str);
+                form.apply_socket.Remove(accept_socket[i]);
+                form.apply_id.Remove(accept_id[i]);
+                form.apply_frd.Remove(accept_frd[i]);
+                accept_socket[i].Send(sd);
             }
         }
     }
