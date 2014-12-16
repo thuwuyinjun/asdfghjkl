@@ -1,0 +1,90 @@
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\bin\Debug\Communication.exe.config
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.Login_Form.resources
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.Properties.Resources.resources
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.csproj.GenerateResource.Cache
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\bin\Debug\Communication.exe
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\bin\Debug\Communication.pdb
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.exe
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.pdb
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.Client_Form.resources
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.bg_form.resources
+C:\Users\LuoZixin\Desktop\Communication\Communication\Communication\obj\Debug\Communication.ScreenForm.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\bin\Debug\Communication.exe.config
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.exe
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.pdb
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\bin\Debug\Communication.exe
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\bin\Debug\Communication.pdb
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.bg_form.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.Client_Form.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.Login_Form.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.Properties.Resources.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.ScreenForm.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.csproj.GenerateResource.Cache
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\bin\Debug\Communication.exe.config
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.exe
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.pdb
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\bin\Debug\Communication.exe
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\bin\Debug\Communication.pdb
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.bg_form.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.Client_Form.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.Login_Form.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.Properties.Resources.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.ScreenForm.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.csproj.GenerateResource.Cache
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Interop.DynamicGifLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.csproj.ResolveComReference.cache
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Interop.DXTMSFTLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Interop.DXTRANSLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Interop.MSDAOSP.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Interop.MSDASC.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Interop.VCSharpExtensibilityLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.find.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.friend.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.group_talk.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.want_befrd.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication - 副本\Communication\Communication\obj\Debug\Communication.inviting.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\bin\Debug\Communication.exe.config
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Interop.DXTMSFTLib.dll
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Interop.DXTRANSLib.dll
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Interop.MSDASC.dll
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Interop.VCSharpExtensibilityLib.dll
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.csproj.ResolveComReference.cache
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.exe
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.pdb
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.bg_form.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.find.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.Client_Form.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.group_talk.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.inviting.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.Login_Form.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.Properties.Resources.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.ScreenForm.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.want_befrd.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.csproj.GenerateResource.Cache
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\bin\Debug\Communication.exe
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\bin\Debug\Communication.pdb
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.control_friend.resources
+C:\Users\LuoZixin\Desktop\new\Communication\Communication\obj\Debug\Communication.chat_bubble.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.DXTMSFTLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.DXTRANSLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.DynamicGifLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.MSDAOSP.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.MSDASC.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.VCSharpExtensibilityLib.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.csproj.ResolveComReference.cache
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.chat_bubble.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.find.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.control_friend.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.group_talk.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.inviting.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.want_befrd.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.group_chat.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.group_name_input.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Interop.MMC20.dll
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\obj\Debug\Communication.chatting_panel.resources
+F:\学习\大三上\计算机网络及应用\作业\大作业\Communication\Communication\Communication\bin\Debug\Khendys.Controls.ExRichTextBox.dll
