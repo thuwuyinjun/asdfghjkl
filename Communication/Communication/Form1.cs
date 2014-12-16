@@ -34,13 +34,16 @@ namespace Communication
         Thread threadClient = null; // 创建用于接收服务端消息的 线程；  
         Thread threadServer = null;
         Socket sockClient = null;
+        int count;
         bool isgif = false;
+        Shake shake = null;
         byte[] img = null;
         SaveFileDialog sfd;
         bool finish = false;
         delegate void MsgShow(string msg,Color color,HorizontalAlignment direction);
         delegate void SaveDialogShow(byte[] arrMsgRec,int length);
         delegate void showgif(string path);
+        delegate void Shake();
         showgif gif_show = null;
         SaveDialogShow sdshow = null;
         MsgShow msgshow = null;
@@ -100,6 +103,7 @@ namespace Communication
             control_local_test.Click += new EventHandler(control_friend_backclick);
 
             msgshow = new MsgShow(ShowMsg);
+            shake = new Shake(form_shake);
             sdshow = new SaveDialogShow(ShowSaveDialog);
             bg_form = new bg_form();
             sfd = new SaveFileDialog();
@@ -189,7 +193,7 @@ namespace Communication
                 changed = false;
                 timer3.Enabled = false;
                 index_frd.Add(this.Controls.Count - 1);
-                path += "/" + frd_list[frd_list.Count - 1] + ".txt";
+                path += "./" + frd_list[frd_list.Count - 1] + ".txt";
                 if (!File.Exists(path))
                 {
                     File.Create(path);
@@ -702,21 +706,21 @@ namespace Communication
                     //lbOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
                     break;
                 }
-                string strMsg = System.Text.Encoding.UTF8.GetString(arrMsgRec, 1, length - 1);// 将接受到的字节数据转化成字符串；  
-                if (arrMsgRec[0] == 0)  // 表示接收到的是文本；  
+                string strMsg = System.Text.Encoding.UTF8.GetString(arrMsgRec, 1, length - 1);// 将接受到的字节数据转化成字符串； 
+                switch (arrMsgRec[0])
                 {
-                    this.Invoke(msgshow, new object[] { current_select.name + "  " + DateTime.Now.ToLongTimeString().ToString() + "\r\n", Color.Blue, HorizontalAlignment.Left });
-                    this.Invoke(msgshow, new object[] { strMsg, Color.Black, HorizontalAlignment.Left });
-                }
-                else
-                {
-                    if (arrMsgRec[0] == 1) // 表示接收到的是文件；  
-                    {
-                        this.BeginInvoke(sdshow, new object[] { arrMsgRec, length });
-                    }
-                    else
-                    {
-                        if (arrMsgRec[0] == 2)      //接收到的是动态表情
+                    case 0: // 表示接收到的是文本；  
+                        {
+                            this.Invoke(msgshow, new object[] { current_select.name + "  " + DateTime.Now.ToLongTimeString().ToString() + "\r\n", Color.Blue, HorizontalAlignment.Left });
+                            this.Invoke(msgshow, new object[] { strMsg, Color.Black, HorizontalAlignment.Left });
+                            break;
+                        }
+                    case 1:// 表示接收到的是文件；  
+                        {
+                            this.BeginInvoke(sdshow, new object[] { arrMsgRec, length });
+                            break;
+                        }
+                    case 2: //接收到的是动态表情
                         {
                             string path = "../../Resources/gif";
                             string num = null;
@@ -730,70 +734,32 @@ namespace Communication
                                 pic.SizeMode = PictureBoxSizeMode.StretchImage;*/
                             int index = Int32.Parse(num);
                             this.BeginInvoke(gif_show, new object[] { path });
-
-                            
+                            break;
                         }
-                        else
+                    case 3: //接收到的是添加好友请求
                         {
-                            if (arrMsgRec[0] == 3)      //接收到的是添加好友请求
-                            {
-                                timer4.Enabled = true;
-                                apply_frd.Add(strMsg);
-                                apply_id.Add(3);
-                            }
-                            else
-                            {
-                                if (arrMsgRec[0] == 4)  //接收到的是加群的请求
-                                {
-                                    timer4.Enabled = true;
-                                    apply_frd.Add(strMsg);
-                                    apply_id.Add(4);
-                                }
-                            }
+                            timer4.Enabled = true;
+                            apply_frd.Add(strMsg);
+                            apply_id.Add(3);
+                            break;
                         }
-                    }
-
+                    case 4: //接收到的是加群的请求
+                        {
+                            timer4.Enabled = true;
+                            apply_frd.Add(strMsg);
+                            apply_id.Add(4);
+                            break;
+                        }
+                    case 5: //接收到的是窗口抖动请求
+                        {
+                            this.Invoke(msgshow, new object[] { "对方发来了一个窗口抖动\n", Color.Gray, HorizontalAlignment.Center });
+                            this.Invoke(shake, new object[] { });
+                            break;
+                        }
+                    default:
+                        break;
+                       
                 }
-                /*
-                                    string str_base = "/?/";
-                                    string path = "../../Resources/gif";
-                                    string num = null;
-                                    if (strMsg.IndexOf(str_base) == 0)
-                                    {
-                                        num = strMsg.Substring(3, strMsg.Length - 3 - 4);
-                                        path += num + ".gif";
-                                        / * PictureBox pic = new PictureBox();
-                                         pic.ImageLocation = "../../Resources/gif1.gif";
-                                         pic.Load("../../Resources/gif1.gif");
-                                         pic.Width = 25;
-                                         pic.Height = 25;
-                                         pic.SizeMode = PictureBoxSizeMode.StretchImage;* /
-                                        int index = Int32.Parse(num);
-                                        this.BeginInvoke(gif_show, new object[] { path });
-
-                                    }
-                                    else
-                                    {
-                                        if (arrMsgRec[0] == 1)
-                                        {
-                                            this.BeginInvoke(msgshow, new object[] { strMsg });
-                                        }
-                                    }*/
-
-                /*
-                                    else
-                                    {
-                                            strMsg = System.Text.Encoding.UTF8.GetString(arrMsgRec, 1, length - 1);
-                            
-                                            if (strMsg.Substring(0,4) == "/frd")
-                                            {
-                                                timer4.Enabled = true;
-                                                want_befrd req = new want_befrd();
-                                                req.Show();
-                                            }
-                                    }*/
-
-
             }
         }
         void RecMsg1()
@@ -1002,7 +968,10 @@ namespace Communication
 
         private void pb_shake_Click(object sender, EventArgs e)
         {
-
+            byte[] arrSendMsg;
+            arrSendMsg = new byte[1];
+            arrSendMsg[0] = 5;
+            sockClient.Send(arrSendMsg); // 发送消息； 
         }
 
         private void timer6_Tick(object sender, EventArgs e)
@@ -1054,6 +1023,51 @@ namespace Communication
                     this.tb_input.Controls[gif_id[i]].Location = p[i];
                 }*/
             }
+        }
+        void form_shake()
+        {
+            count = 0;
+            shake_timer.Start();
+        }
+        private void pb_file_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void shake_timer_Tick(object sender, EventArgs e)
+        {
+            if (count < 10)
+            {
+                Point new_loc = new Point(this.Location.X - 1, this.Location.Y - 1);
+                this.Location = new_loc;
+                count++;
+            }
+            else if (count < 20)
+            {
+                Point new_loc = new Point(this.Location.X + 1, this.Location.Y + 1);
+                this.Location = new_loc;
+                count++;
+            }
+            else if (count < 30)
+            {
+                Point new_loc = new Point(this.Location.X + 1, this.Location.Y - 1);
+                this.Location = new_loc;
+                count++;
+            }
+            else if (count < 40)
+            {
+                Point new_loc = new Point(this.Location.X - 1, this.Location.Y + 1);
+                this.Location = new_loc;
+                count++;
+            }
+            else
+                shake_timer.Stop();
+
+        }
+
+        private void Client_Form_LocationChanged(object sender, EventArgs e)
+        {
+            this.bg_form.Location = this.Location;
         }
 
     }

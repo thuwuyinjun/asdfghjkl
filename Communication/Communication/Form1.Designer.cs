@@ -64,6 +64,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pb_add = new System.Windows.Forms.PictureBox();
             this.pb_logo = new System.Windows.Forms.PictureBox();
+            this.shake_timer = new System.Windows.Forms.Timer(this.components);
             this.control_local_test = new Communication.control_friend();
             this.panel_toolstrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_expression)).BeginInit();
@@ -264,6 +265,7 @@
             this.pb_file.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_file.TabIndex = 8;
             this.pb_file.TabStop = false;
+            this.pb_file.Click += new System.EventHandler(this.pb_file_Click);
             // 
             // pb_divide1
             // 
@@ -436,6 +438,11 @@
             this.pb_logo.TabIndex = 7;
             this.pb_logo.TabStop = false;
             // 
+            // shake_timer
+            // 
+            this.shake_timer.Interval = 10;
+            this.shake_timer.Tick += new System.EventHandler(this.shake_timer_Tick);
+            // 
             // control_local_test
             // 
             this.control_local_test.BackColor = System.Drawing.Color.Gainsboro;
@@ -461,6 +468,7 @@
             this.Name = "Client_Form";
             this.Activated += new System.EventHandler(this.Client_Form_Activated);
             this.Load += new System.EventHandler(this.Client_Form_Load);
+            this.LocationChanged += new System.EventHandler(this.Client_Form_LocationChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Client_Form_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Client_Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Client_Form_MouseMove);
@@ -528,6 +536,7 @@
         private System.Windows.Forms.PictureBox pb_expression;
         public System.Windows.Forms.RichTextBox tb_output;
         public System.Windows.Forms.Panel panel_toolstrip;
+        private System.Windows.Forms.Timer shake_timer;
     }
 }
 
